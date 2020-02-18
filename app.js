@@ -19,7 +19,8 @@ var indexRoutes = require("./routes/index");
 
 // seedDB();
 mongoose.set("useUnifiedTopology", true);
-mongoose.connect("mongodb://localhost/yelp_camp", {useNewUrlParser: true});
+// mongoose.connect("mongodb://localhost/yelp_camp", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://Potato:wdb123@cluster0-xl1ep.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true});
 mongoose.set('useFindAndModify', false);
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
