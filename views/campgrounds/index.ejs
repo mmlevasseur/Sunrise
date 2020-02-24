@@ -4,18 +4,23 @@
 	<header class= "jumbotron">
 		<div class="container">
 			<h1>
-				Welcome to YelpCamp!
+				Welcome to Sunrise!
 			</h1>
 			<p>
-				View our hand-picked campgrounds from all over the world
+				Find romantic sunrise spots across the globe handpicked by the people who've already been there!
 			</p>
 			<p>
-				<a class = "btn btn-primary btn-lg" href="/campgrounds/new">Add New Campground</a>
+				<a class = "btn btn-warning btn-lg" href="/campgrounds/new">Add New Sunspot</a>
 			</p>
 		</div>
 	</header>
 	
 	<div class="row text-center" style="display:flex; flex-wrap:wrap;">
+		<div class="col-md-12">
+			<% if(noMatch !== null) { %>
+				<h3><%= noMatch %></h3>
+			<% } %>
+		</div>
 		<% campgrounds.forEach(function(campground){ %>
 		<div class="col-md-3 col-sm-6">
 			<div class="thumbnail">
@@ -24,9 +29,12 @@
 					<h4>
 						<%= campground.name %>
 					</h4>
+					<div>
+                    	<span class="badge badge-inverse"><i class="fas fa-heart"></i> <%= campground.likes.length %></span>
+                    </div>
 				</div>
 				<p>
-					<a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
+					<a href="/campgrounds/<%= campground._id %>" class="btn btn-warning">More Info</a>
 				</p>
 			</div>
 		</div>

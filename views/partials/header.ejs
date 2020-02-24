@@ -3,12 +3,13 @@
 	<head>
 		<!-- Make site responsive on mobile/tablet -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>YelpCamp</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<title>Sunrise</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/stylesheets/main.css">
+		<script src="https://kit.fontawesome.com/327aba2c6c.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<nav class="navbar navbar-default">
+		<nav class="navbar navbar-default navbar-inverse">
     		<div class="container">
         		<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -18,18 +19,24 @@
 					  <span class="icon-bar"></span>
 					</button>
 
-					<a class="navbar-brand" href="/">YelpCamp</a>
+					<a class="navbar-brand" href="/"><i class="fas fa-sun"></i> Sunrise</a>
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 				  <ul class="nav navbar-nav">
 					<li class="<%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>"><a href="/campgrounds">Home</a></li>
 				  </ul>
+				  <form action="/campgrounds" method="GET" class="navbar-form navbar-left">
+					<div class="form-group">
+						<input type="text" name="search" placeholder="Search for Sunspots" class="form-control">
+						<input type="submit" value="Search" class="btn btn-warning">
+					</div>
+				  </form> 
 				  <ul class="nav navbar-nav navbar-right">
 					  <% if(!currentUser){ %>
 						  <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a href="/login">Login</a></li>
 						  <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a href="/register">Sign Up</a></li>
 					  <% } else { %>
-						  <li><a href="#">Signed In As <%= currentUser.username %></a></li>
+						  <li><a href="/users/<%= currentUser.id %>" title="View my profile">Signed In As <%= currentUser.username %></a></li>
 						  <li><a href="/logout">Logout</a></li>
 					  <% } %>
 				  </ul>

@@ -21,11 +21,13 @@ var indexRoutes = require("./routes/index");
 mongoose.set("useUnifiedTopology", true);
 mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
 mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 app.use(methodOverride("_method"));
 app.use(flash());
+app.locals.moment = require("moment");
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({
@@ -52,5 +54,5 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 app.listen(process.env.PORT || 3000, function(){
-	console.log("The YelpCamp Server is up and running");
+	console.log("The Sunrise Server is up and running");
 });

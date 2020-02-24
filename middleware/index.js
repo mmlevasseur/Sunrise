@@ -1,5 +1,6 @@
 var Campground = require("../models/campground");
 var Comment = require("../models/comment");
+var User = require("../models/user");
 var middlewareObj = {};
 
 middlewareObj.checkCampgroundOwnership = function(req, res, next){
@@ -14,6 +15,30 @@ middlewareObj.checkCampgroundOwnership = function(req, res, next){
 					next();
 				} else {
 					req.flash("error", "Incorrect user credentials to complete request")
+					res.redirect("back");
+				}
+			}
+		});
+	} else {
+		req.flash("error", "Must be logged in");
+		res.redirect("back");
+	}
+}
+
+middlewareObj.checkProfileOwnership = function(req, res, next){
+	if(req.isAuthenticated()){
+		User.findById(req.user.id, function(err, foundProfile){
+			if(err || !foundProfile){
+				req.flash("error", "Profile not found");
+				console.log(err);
+				res.redirect("back");
+			} else {
+				//does user own the profile?
+				if(foundProfile.username === req.user.username){
+					next();
+				} else {
+					req.flash("error", "Incorrect user credentials to complete request");
+					console.log(err);
 					res.redirect("back");
 				}
 			}

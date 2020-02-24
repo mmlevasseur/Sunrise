@@ -1,0 +1,44 @@
+<%- include("../partials/header") %>
+
+<div class="row">
+	<div class="col-md-4">
+		<h1><%= user.firstName + " " + user.lastName %>'s Profile</h1>
+		<br/>
+		<div class="thumbnail">
+			<div class="caption">
+				<img src="<%= user.avatar %>" alt="user profile image">
+				<span>Email: <a href="mailto:<%= user.email %>"><%= user.email %></a></span>
+			</div>
+		</div>
+	</div>
+	<div style="padding-top: 85px" class="col-md-8">
+		<p><%= user.bio %></p>
+		<% if(currentUser && user.username === currentUser.username){ %>
+			<a href="/users/:id/edit" type="submit" class="btn btn-warning">Edit</a>
+		<% } %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<h3><%= user.lastName %>'s Sunspots</h3>
+		<br/>
+		<% campgrounds.forEach(function(campground){ %>
+		<div class="col-md-4 col-sm-6">
+			<div class="thumbnail">
+				<a href="/campgrounds/<%= campground._id %>"><img src="<%= campground.image %>"></a>
+				<div class="caption">
+					<h4>
+						<a href="/campgrounds/<%= campground._id %>"><%= campground.name %></a>
+					</h4>
+					<div>
+                    	<span class="badge badge-inverse"><i class="fas fa-heart"></i> <%= campground.likes.length %></span>
+                    </div>
+				</div>
+			</div>
+		</div>
+		<% }); %>
+	</div>
+</div>
+
+
+<%- include("../partials/footer") %>
