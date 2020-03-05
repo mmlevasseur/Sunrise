@@ -52,6 +52,6 @@ Visit "https://sunrise-sunspot.herokuapp.com/"
 
 ## Future Improvements
 
-Implement Google maps location services for finding the exact sunspot coordinates
-Implement ratings and reviews for each sunspot location
+* Implement Google maps location services for finding the exact sunspot coordinates
+* Implement ratings and reviews for each sunspot location
 
