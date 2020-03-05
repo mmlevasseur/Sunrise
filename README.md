@@ -4,6 +4,7 @@ Find romantic sunrise spots and list them on Sunrise as a recommendation for a g
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
+* [NPM Packages](#npm-packages)
 * [Setup](#setup)
 
 ## General info
@@ -21,11 +22,11 @@ Project is created with:
 * PassportJS
 * Bootstrap 3
 
-##NPM Packages
+## NPM Packages
 To install npm packages, use command:
 
 ```
-npm install async body-parser ejs... --save
+npm install async body-parser ejs ... --save
 ```
 
 * "async": "^3.1.1",
@@ -46,5 +47,10 @@ npm install async body-parser ejs... --save
 
 ## URL
 
-Visit "https://rgbcolorguesser.imfast.io/"
+Visit "https://sunrise-sunspot.herokuapp.com/"
+
+## Future Improvements
+
+Implement Google maps location services for finding the exact sunspot coordinates
+Implement ratings and reviews for each sunspot location
 
