@@ -5,7 +5,8 @@ Find romantic sunrise spots and list them on Sunrise as a recommendation for a g
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [NPM Packages](#npm-packages)
-* [Setup](#setup)
+* [URL](#url)
+* [Future Improvements](#future-improvements)
 
 ## General info
 This is a web application that allows any user to add a sunrise location to recommend to other users and those users can like or comment on those sunrise locations. To be able to add sunrise locations that you would recommend to others, you must first register an account and put in the required information. Then you must log in to add a new sunrise location called a "sunspot". Afterwards, you may edit or delete the sunspot as well as any comment you make to any other sunspot. You may also "like" the ones that you agree are good spots. Browse to your heart's content and find the most romantic sunrise spots across the world!
